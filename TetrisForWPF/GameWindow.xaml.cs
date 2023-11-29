@@ -151,13 +151,16 @@ public partial class GameWindow : Window, INotifyPropertyChanged
 
     private void CloseTheWindow(object sender, RoutedEventArgs e)
     {
+        _isPaused = true;
         var result = MessageBox.Show("Are you sure you want to quit?", "", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
             Close();
+        _isPaused = false;
     }
 
     private void MinimizeTheWindow(object sender, RoutedEventArgs e)
     {
+        _isPaused = true;
         WindowState = WindowState.Minimized;
     }
 

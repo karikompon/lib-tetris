@@ -42,8 +42,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" FlowDirection="RightToLeft" Style="{StaticResource SimpleStackPanel}">
-            <Button Content="X" Click="CloseTheWindow" Style="{StaticResource SimpleButton}"/>
-            <Button Content="_" Click="MinimizeTheWindow" Style="{StaticResource SimpleButton}"/>
+            <Button Content="X" Click="CloseTheWindow" Style="{StaticResource SimpleButton}" Focusable="False" IsCancel="True"/>
+            <Button Content="_" Click="MinimizeTheWindow" Style="{StaticResource SimpleButton}" Focusable="False"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Style="{StaticResource SimpleStackPanel}">
