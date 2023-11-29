@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ public partial class GameWindow : Window, INotifyPropertyChanged
     private IFigure _figure;
     private int _theSpeedAtWhichFigureFalls = 1000;
     private int _score;
+    private bool _isPaused;
 
     public GameWindow(IGridSettings gridSettings, IGridGenerator gridGenerator, IBlockPositionWriter blockPositionWriter, ICustomizer customizer, IBlocksCollection inactiveBlocks, IFigureTypesHandler figureTypesHandler)
     {
@@ -61,21 +63,34 @@ public partial class GameWindow : Window, INotifyPropertyChanged
         }
     }
 
+    private async Task<bool> TryPause()
+    {
+        if (!_isPaused)
+            return false;
+
+        while (_isPaused)
+            await Task.Delay(1);
+        return true;
+    }
+
     private void KeyDownHandler(object sender, KeyEventArgs e)
     {
         switch (e.Key)
         {
-            case Key.Up:
+            case Key.Up when !_isPaused:
                 _figure.TryRotate();
                 break;
-            case Key.Left:
+            case Key.Left when !_isPaused:
                 _figure.TryMoveLeft();
                 break;
-            case Key.Right:
+            case Key.Right when !_isPaused:
                 _figure.TryMoveRight();
                 break;
-            case Key.Down:
+            case Key.Down when !_isPaused:
                 _figure.TryMoveDown();
+                break;
+            case Key.Space:
+                _isPaused = !_isPaused;
                 break;
         }
     }
@@ -89,10 +104,12 @@ public partial class GameWindow : Window, INotifyPropertyChanged
             _grid, _customizer);
 
         await Task.Delay(_theSpeedAtWhichFigureFalls);
+        await TryPause();
 
         while (_figure.TryMoveDown())
         {
             await Task.Delay(_theSpeedAtWhichFigureFalls);
+            await TryPause();
         }
 
         foreach (BlockBase block in _figure)
