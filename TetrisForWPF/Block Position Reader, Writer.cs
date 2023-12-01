@@ -15,10 +15,10 @@ public interface IBlockPositionWriter : IBlockPositionReader
 
 public class BlockPositionWriter : IBlockPositionWriter
 {
-    private readonly IBlocksCollection _inactiveBlocksHandler;
+    private readonly IBlockRepository _inactiveBlocksHandler;
     private readonly IGridSettings _gridSettings;
 
-    public BlockPositionWriter(IBlocksCollection inactiveBlocksHandler, IGridSettings gridSettings)
+    public BlockPositionWriter(IBlockRepository inactiveBlocksHandler, IGridSettings gridSettings)
     {
         _inactiveBlocksHandler = inactiveBlocksHandler;
         _gridSettings = gridSettings;

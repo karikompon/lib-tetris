@@ -17,15 +17,15 @@ public partial class GameWindow : Window, INotifyPropertyChanged
     private readonly IGridGenerator _gridGenerator;
     private readonly IBlockPositionWriter _blockPositionWriter;
     private readonly ICustomizer _customizer;
-    private readonly IBlocksCollection _inactiveBlocks;
-    private readonly IFigureTypesHandler _figureTypesHandler;
+    private readonly IBlockRepository _inactiveBlocks;
+    private readonly IFigureTypeHandler _figureTypesHandler;
 
     private IFigure _figure;
     private int _theSpeedAtWhichFigureFalls = 1000;
     private int _score;
     private bool _isPaused;
 
-    public GameWindow(IGridSettings gridSettings, IGridGenerator gridGenerator, IBlockPositionWriter blockPositionWriter, ICustomizer customizer, IBlocksCollection inactiveBlocks, IFigureTypesHandler figureTypesHandler)
+    public GameWindow(IGridSettings gridSettings, IGridGenerator gridGenerator, IBlockPositionWriter blockPositionWriter, ICustomizer customizer, IBlockRepository inactiveBlocks, IFigureTypeHandler figureTypesHandler)
     {
         InitializeComponent();
         DataContext = this;

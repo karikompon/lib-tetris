@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace TetrisForWPF;
 
-public interface IBlocksCollection : IEnumerable<BlockBase>
+public interface IBlockRepository : IEnumerable<BlockBase>
 {
     void Add(BlockBase block);
 
     void Remove(BlockBase block);
 }
 
-public class BlocksCollection : IBlocksCollection
+public class BlockRepository : IBlockRepository
 {
     private readonly List<BlockBase> _blocks;
 
-    public BlocksCollection()
+    public BlockRepository()
     {
         _blocks = new List<BlockBase>();
     }

@@ -2,17 +2,17 @@
 
 namespace TetrisForWPF;
 
-public interface IFigureTypesHandler
+public interface IFigureTypeHandler
 {
     IFigureType GetRandomType();
 }
 
-public class FigureTypesHandler : IFigureTypesHandler
+public class FigureTypeHandler : IFigureTypeHandler
 {
     private readonly Random _random;
     private readonly IFigureType[] _types;
 
-    public FigureTypesHandler(ICustomizer customizer)
+    public FigureTypeHandler(ICustomizer customizer)
     {
         _types = new IFigureType[]
         {
