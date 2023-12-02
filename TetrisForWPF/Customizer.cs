@@ -20,7 +20,7 @@ public interface ICustomizer
     public Brush BlockBorderBrush { get; set; }
 }
 
-public class Customizer : ICustomizer
+internal class Customizer : ICustomizer
 {
     public Brush BackgroundColor { get; set; } = Brushes.Black;
     public Brush LFigureColor { get; set; } = Brushes.OrangeRed;

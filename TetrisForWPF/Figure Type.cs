@@ -23,7 +23,7 @@ public interface IFigureType
     public Offset[][] RotationOffsets { get; }
 }
 
-public class L_Figure : IFigureType
+internal class L_Figure : IFigureType
 {
     public L_Figure(Brush blockColor)
     {
@@ -75,7 +75,7 @@ public class L_Figure : IFigureType
     };
 }
 
-public class J_Figure : IFigureType
+internal class J_Figure : IFigureType
 {
     public J_Figure(Brush blockColor)
     {
@@ -127,7 +127,7 @@ public class J_Figure : IFigureType
     };
 }
 
-public class O_Figure : IFigureType
+internal class O_Figure : IFigureType
 {
     public O_Figure(Brush blockColor)
     {
@@ -179,7 +179,7 @@ public class O_Figure : IFigureType
     };
 }
 
-public class T_Figure : IFigureType
+internal class T_Figure : IFigureType
 {
     public T_Figure(Brush blockColor)
     {
@@ -231,7 +231,7 @@ public class T_Figure : IFigureType
     };
 }
 
-public class I_Figure : IFigureType
+internal class I_Figure : IFigureType
 {
     public I_Figure(Brush blockColor)
     {
@@ -283,7 +283,7 @@ public class I_Figure : IFigureType
     };
 }
 
-public class S_Figure : IFigureType
+internal class S_Figure : IFigureType
 {
     public S_Figure(Brush blockColor)
     {
@@ -335,7 +335,7 @@ public class S_Figure : IFigureType
     };
 }
 
-public class Z_Figure : IFigureType
+internal class Z_Figure : IFigureType
 {
     public Z_Figure(Brush blockColor)
     {

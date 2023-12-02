@@ -13,7 +13,7 @@ public interface IBlockPositionWriter : IBlockPositionReader
     void SetBlockPosition(BlockBase block, int row, int column);
 }
 
-public class BlockPositionWriter : IBlockPositionWriter
+internal class BlockPositionWriter : IBlockPositionWriter
 {
     private readonly IBlockRepository _inactiveBlocksHandler;
     private readonly IGridSettings _gridSettings;

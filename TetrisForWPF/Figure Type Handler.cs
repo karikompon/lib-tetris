@@ -7,7 +7,7 @@ public interface IFigureTypeHandler
     IFigureType GetRandomType();
 }
 
-public class FigureTypeHandler : IFigureTypeHandler
+internal class FigureTypeHandler : IFigureTypeHandler
 {
     private readonly Random _random;
     private readonly IFigureType[] _types;

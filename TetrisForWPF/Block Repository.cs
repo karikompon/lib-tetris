@@ -10,7 +10,7 @@ public interface IBlockRepository : IEnumerable<BlockBase>
     void Remove(BlockBase block);
 }
 
-public class BlockRepository : IBlockRepository
+internal class BlockRepository : IBlockRepository
 {
     private readonly List<BlockBase> _blocks;
 
